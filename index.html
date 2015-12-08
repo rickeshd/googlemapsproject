@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Google Maps Project</title>
+    <style type="text/css">
+      html, body { height: 100%; margin: 0; padding: 0; }
+      #map { height: 100%; }
+    </style>
+
 </head>
 <body>
-    <script src="js/knockout-3.4.0.js"></script>
+	<div id="map"></div>
+    <script src="js/ knockout-3.4.0.js"></script>
     <script src="js/app.js"></script>
-</body>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp5_wsWWtTAQjj2QAF6kYNsZHPH0guSVg&callback=initMap&libraries=drawing">
+    </script>
+</body>d
 </html>
