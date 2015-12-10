@@ -1,5 +1,16 @@
 var map;
-var markers = [];
+var markers = ko.observableArray([]);
+// function ViewModel() {
+//   places = ko.observableArray([
+//         ['Palace of Fine Arts Theatre', 37.802857, -122.449362],
+//         ['Dolores Park', 37.759798, -122.427235],
+//         ['de Young Museum', 37.771345, -122.468667],
+//         ['Pier 39', 37.808752, -122.409952],
+//         ['Exploratorium', 37.800762, -122.398582],
+//         ['Market Street', 37.788697, -122.402179],
+//         ['Coit Tower', 37.802377, -122.405862]
+//     ]);
+// }
 
 function initMap() {
     var myLatLng = {lat: 37.784463, lng: -122.431152};
@@ -8,8 +19,7 @@ function initMap() {
     	  center: myLatLng,
     	  zoom: 14
   	});
-
-    var places = [
+    places = ko.observableArray([
         ['Palace of Fine Arts Theatre', 37.802857, -122.449362],
         ['Dolores Park', 37.759798, -122.427235],
         ['de Young Museum', 37.771345, -122.468667],
@@ -17,7 +27,7 @@ function initMap() {
         ['Exploratorium', 37.800762, -122.398582],
         ['Market Street', 37.788697, -122.402179],
         ['Coit Tower', 37.802377, -122.405862]
-    ];
+    ]);
 
     for (var i = 0; i < places.length; i++) {
         var marker = new google.maps.Marker({
@@ -27,7 +37,7 @@ function initMap() {
         });
         markers.push(marker);     
     }
-    console.log(markers);
 }
+ko.applyBindings(new initMap());
 
 
