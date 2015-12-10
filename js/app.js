@@ -1,44 +1,33 @@
 var map;
+var markers = [];
+
 function initMap() {
-	var myLatLng = {lat: 37.784463, lng: -122.431152};
+    var myLatLng = {lat: 37.784463, lng: -122.431152};
   
-	map = new google.maps.Map(document.getElementById('map'), {
-    	center: myLatLng,
-    	zoom: 14
+	  map = new google.maps.Map(document.getElementById('map'), {
+    	  center: myLatLng,
+    	  zoom: 14
   	});
 
-    var marker1 = new google.maps.Marker({
-  		position: {lat: 37.802857, lng: -122.449362},
-  		map: map,
-  		title: 'Palace of Fine Arts Theatre'
-  	});
-  	    var marker2 = new google.maps.Marker({
-  		position: {lat: 37.759798, lng: -122.427235},
-  		map: map,
-  		title: 'Dolores Park'
-  	});
-  	    var marker3 = new google.maps.Marker({
-  		position: {lat: 37.771345, lng: -122.468667},
-  		map: map,
-  		title: 'de Young Museum'
-  	});
+    var places = [
+        ['Palace of Fine Arts Theatre', 37.802857, -122.449362],
+        ['Dolores Park', 37.759798, -122.427235],
+        ['de Young Museum', 37.771345, -122.468667],
+        ['Pier 39', 37.808752, -122.409952],
+        ['Exploratorium', 37.800762, -122.398582],
+        ['Market Street', 37.788697, -122.402179],
+        ['Coit Tower', 37.802377, -122.405862]
+    ];
 
-    google.maps.event.addListener(map, 'click', function(event) {
-    placeMarker(event.latLng);
-	});
+    for (var i = 0; i < places.length; i++) {
+        var marker = new google.maps.Marker({
+            position: {lat: places[i][1], lng: places[i][2]},
+            map: map,
+            title: places[i][0]
+        });
+        markers.push(marker);     
+    }
+    console.log(markers);
 }
-
-
-function placeMarker(location) {
-    var marker = new google.maps.Marker({
-        position: location, 
-        map: map
-    });
-}
-
-// var drawingManager = new google.maps.drawing.DrawingManager();
-// drawingManager.setMap(map);
-
-
 
 
