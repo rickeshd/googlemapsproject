@@ -1,1 +1,11 @@
+li:hover {
+color: blue;
+cursor: pointer;
+}
 
+
+
+#map {
+	width: 1000px;
+	height: 1000px;
+}
