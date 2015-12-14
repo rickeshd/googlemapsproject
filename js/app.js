@@ -38,5 +38,32 @@ var ViewModel = function () {
     });
 }
 ko.applyBindings(new ViewModel());
+// var wikiUrl = ('https://en.wikipedia.org/w/api.php?action=opensearch&search='+ places[0][0] +'&format=json&callback=wikiCallback');
+var $wikiContainer = $('#wikicontainer');
+// function loadWiki() {   
+//        $.ajax(wikiUrl, {
+//         dataType: "jsonp",
+//         success: function(response) {
+//             for (var i = 0; i < response.length; i++) {
+//                 var articles = response[i];
+//                 var url = 'http://en.wikipedia.org/wiki/' + articles;
+//                 $wikiContainer.append('<a href="' + url + '">' + articles + '</a>');
+//             };
+//         }
+//     });
+// }
 
-
+var newWikiUrl = ('https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=DoloresPark&srnamespace=0&srprop=snippet&srlimit=10&imlimit=1');
+function loadNewWiki() {   
+       $.ajax(newWikiUrl, {
+        dataType: "jsonp",
+        success: function(response) {
+            console.log(response.query.search[0].title);
+            console.log(response.query.search[0].snippet);
+            $wikiContainer.append(response.query.search[0].title);
+            $wikiContainer.append(response.query.search[0].snippet);
+        }
+    });
+}
+// loadWiki();
+loadNewWiki()
