@@ -10,6 +10,7 @@ var places = [
     ['Coit Tower', 37.802377, -122.405862]
 ];
 
+var $body = $('body');
 // add map and markers to map
 var initMap = function() {
     var myLatLng = {lat: 37.784463, lng: -122.431152};
@@ -33,6 +34,18 @@ var ViewModel = function () {
 
     this.placesList = ko.observableArray([]);
 
+    this.wikiLoad = function loadNewWiki() {   
+       $.ajax(newWikiUrl, {
+        dataType: "jsonp",
+        success: function(response) {
+            console.log(response.query.search[0].title);
+            console.log(response.query.search[0].snippet);
+            $wikiContainer.append(response.query.search[0].title);
+            $wikiContainer.append(response.query.search[0].snippet);
+        }
+    });
+}
+    
     places.forEach(function(place) {
         self.placesList.push(place);
     });
@@ -66,4 +79,4 @@ function loadNewWiki() {
     });
 }
 // loadWiki();
-loadNewWiki()
+//loadNewWiki()

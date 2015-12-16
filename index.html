@@ -11,7 +11,7 @@
 </head>
 <body>
     <ul id = "placeslist" data-bind="foreach: places">
-        <li data-bind="text: $data[0]"></li>
+        <li data-bind="text: $data[0], click: $parent.wikiLoad"></li>
     </ul>  
 	<div id="map"></div>
   <div id="wikicontainer"></div>
