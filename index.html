@@ -10,11 +10,14 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <ul id = "placeslist" data-bind="foreach: places">
-        <li data-bind="text: $data[0], click: $parent.wikiLoad"></li>
+    <ul id = "placeslist" data-bind="foreach: placesList">
+        <li data-bind="text: name, click: $parent.setWiki"></li>
     </ul>  
 	<div id="map"></div>
-  <div id="wikicontainer"></div>
+  <div id="wikicontainer" data-bind="with:currentWiki">
+    <h2 data-bind="text: $data"></h2>
+
+  </div>
     <script src="js/ knockout-3.4.0.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/app.js"></script>
