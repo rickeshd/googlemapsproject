@@ -3,9 +3,13 @@ color: blue;
 cursor: pointer;
 }
 
-
+/*ul {
+	position: absolute;
+	z-index:1;
+}*/
 
 #map {
 	width: 1000px;
 	height: 1000px;
+	margin-left: 300px;
 }

@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Google Maps Project</title>
-    <style type="text/css">
+<!--     <style type="text/css">
       html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
-    </style>
+/*      #map { height: 100%; }*/
+    </style> -->
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
     <ul id = "placeslist" data-bind="foreach: placesList">
-        <li data-bind="text: name, click: $parent.setWiki"></li>
+        <li data-bind="text: name, click: $parent.setWikiExtract"></li>
+
     </ul>  
 	<div id="map"></div>
   <div id="wikicontainer" data-bind="with:currentWiki">
-    <h2 data-bind="text: $data"></h2>
-
+    <h2 data-bind="text: setWiki"></h2>
   </div>
     <script src="js/ knockout-3.4.0.js"></script>
     <script src="js/jquery.js"></script>
@@ -24,7 +24,5 @@
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAp5_wsWWtTAQjj2QAF6kYNsZHPH0guSVg&callback=initMap&libraries=drawing">
     </script>
-
-     <!-- <script type="text/javascript" src="https://raw.github.com/padolsey/prettyPrint.js/master/prettyprint.js"></script> -->
 </body>
 </html>
